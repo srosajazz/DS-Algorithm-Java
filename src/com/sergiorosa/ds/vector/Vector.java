@@ -3,7 +3,6 @@ package com.sergiorosa.ds.vector;
 import java.util.Arrays;
 
 public class Vector {
-
 	private String[] elementos; // option#1
 	private int tamanho;
 
@@ -14,7 +13,6 @@ public class Vector {
 	}
 
 	public boolean adiciona(String elemento) {
-
 		if (this.tamanho < this.elementos.length) {
 			this.elementos[this.tamanho] = elemento;
 			this.tamanho++;
@@ -30,7 +28,19 @@ public class Vector {
 		} else {
 			return this.elementos[posicao];
 		}
+		
 	}
+	
+	//Check if element exist True/False
+		public int busca(String elemento){
+			for (int i=0; i < this.tamanho; i++) {
+				if (this.elementos[i].equals(elemento)) {
+					return i;
+				}
+			}
+			return -1;
+		}
+	
 
 	public int tamanho() {
 		return this.tamanho;
