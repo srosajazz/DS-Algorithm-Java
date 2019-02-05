@@ -20,6 +20,29 @@ public class Vector {
 		}
 		return false;
 	}
+	
+	// 0 1 2 3 4 5 6 = tamnaho e 5
+	// B C E F G + +
+	//Add element in any place in the array
+	public boolean adiciona(int posicao, String elemento) {
+		
+		//1: check if the position is envalida
+		if (!(posicao >= 0 && posicao < tamanho)) {
+			throw new IllegalArgumentException("Posicao e ivalida.");
+		}
+		//2: Logica em mover todos os elementos
+		for(int i = this.tamanho-1; i >= posicao; i--) {
+			this.elementos[i+1] = this.elementos[i];
+		}
+		this.elementos[posicao] = elemento;
+		this.tamanho++;
+		
+		return false;
+		//this.tamanho-1 is = 4
+		//primeira passada no for o i vai valer (4).
+		// i=4
+		
+	}
 
 	// Obter elemento de Arrays em uma posição
 	public String busca(int posicao) {
@@ -31,7 +54,7 @@ public class Vector {
 		
 	}
 	
-	//Check if element exist True/False
+	//Check if element exist in array : True/False
 		public int busca(String elemento){
 			for (int i=0; i < this.tamanho; i++) {
 				if (this.elementos[i].equals(elemento)) {

@@ -8,11 +8,11 @@ public class app06 {
 		
 		Vector vector = new Vector(10);
 
-		vector.adiciona("Curso 1");
-		vector.adiciona("Java ds 2");
-		vector.adiciona("elemento 3");
+		vector.adiciona("Curso-1");
+		vector.adiciona("Java ds-2");
+		vector.adiciona("elemento-3");
 
-		System.out.println(vector.busca("Curso 1"));
+		System.out.println(vector.busca("Curso-1"));
 		System.out.println(vector.busca("Curso 4"));
 	}
 
