@@ -13,6 +13,7 @@ public class Vector {
 	}
 
 	public boolean adiciona(String elemento) {
+		this.aumentaCapacidade();
 		if (this.tamanho < this.elementos.length) {
 			this.elementos[this.tamanho] = elemento;
 			this.tamanho++;
@@ -30,18 +31,29 @@ public class Vector {
 		if (!(posicao >= 0 && posicao < tamanho)) {
 			throw new IllegalArgumentException("Posicao e ivalida.");
 		}
-		//2: Logica em mover todos os elementos
+		this.aumentaCapacidade();
+		
+		//2: mover todos os elementos
 		for(int i = this.tamanho-1; i >= posicao; i--) {
 			this.elementos[i+1] = this.elementos[i];
 		}
 		this.elementos[posicao] = elemento;
 		this.tamanho++;
 		
-		return false;
-		//this.tamanho-1 is = 4
-		//primeira passada no for o i vai valer (4).
-		// i=4
+		return true;
 		
+	}
+	
+	//Aumentar capacidade no vector/Array
+	private void aumentaCapacidade() {
+		if (this.tamanho == this.elementos.length) {
+			String[] elementosNovos = new String[this.elementos.length * 2];
+			for (int i=0; i<this.elementos.length; i++) {
+				elementosNovos[i] = this.elementos[i];
+			}
+			//atribuir novo vector
+			this.elementos = elementosNovos;
+		}
 	}
 
 	// Obter elemento de Arrays em uma posição
